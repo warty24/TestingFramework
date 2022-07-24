@@ -1,12 +1,12 @@
 package pages;
 
 public class Pages {
-    private static InitialPage initialPage;
+    private static LoginPage loginPage;
 
-    public static InitialPage getInitialPage() {
-        if (initialPage == null) {
-            initialPage = new InitialPage();
+    public static LoginPage getInitialPage() {
+        if (loginPage == null) {
+            loginPage = new LoginPage();
         }
-        return initialPage;
+        return loginPage;
     }
 }

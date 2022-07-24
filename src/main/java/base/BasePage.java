@@ -1,30 +1,41 @@
 package base;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import utils.AllureLogger;
 
-
-public class BasePage extends BaseTest {
+public class BasePage extends AllureLogger {
+    private WebDriver driver = BaseTest.getDriver();
+    
     public void getPage(String url) {
-        getDriver().get(url);
+        logInfo("Getting url " + url);
+        if (driver == null) driver = BaseTest.getDriver();
+        driver.get(url);
     }
 
     public String getTitle() {
-        return getDriver().getTitle();
+        return driver.getTitle();
     }
     private WebElement findElement(By by) {
-        return getDriver().findElement(by);
+        logInfo("Finding element by locator: " + by);
+        return driver.findElement(by);
     }
-    public void click(By by) {
+    protected void click(By by) {
+        logInfo("Click element by locator: " + by);
         findElement(by).click();
     }
 
-    public void type(By by,String text) {
+    protected void type(By by,String text) {
+        logInfo("Type text \"" + text + "\" to " + by);
         findElement(by).sendKeys(text);
     }
 
-    public boolean isElementVisible(By by) {
+    protected boolean isElementVisible(By by) {
         return findElement(by).isDisplayed();
     }
 
+    protected String getElementText(By by) {
+        return findElement(by).getText();
+    }
 }

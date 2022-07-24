@@ -7,10 +7,12 @@ import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.*;
 import org.testng.annotations.*;
+import utils.AllureLogger;
 
 import java.time.Duration;
 
-public class BaseTest {
+@Listeners({TestListener.class})
+public class BaseTest extends AllureLogger {
     @Getter
     private static WebDriver driver;
     protected static UiSettings settings;
@@ -20,14 +22,15 @@ public class BaseTest {
         settings = ConfigManager.getConfiguration().getUiSettings();
         startChrome();
     }
-    @AfterSuite
+    @AfterSuite(alwaysRun = true)
     public void afterSuite() {
-  //      driver.quit();
+        driver.quit();
     }
 
     private void startChrome() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
+        logInfo("Chrome driver started");
     }
 }

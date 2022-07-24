@@ -8,64 +8,92 @@
     <artifactId>TestFrame</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
+        <testng>7.6.0</testng>
+        <webDriverManager>5.0.3</webDriverManager>
+        <selenium>4.2.2</selenium>
+        <lombok>1.18.24</lombok>
+        <typesafe>1.4.2</typesafe>
+        <gson>2.9.0</gson>
+        <postgresql>42.4.0</postgresql>
+        <logback>1.2.11</logback>
+        <slf4j>1.7.36</slf4j>
+        <allure>2.18.1</allure>
 
+    </properties>
+
+    <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.2.2</version>
+            <version>${selenium}</version>
         </dependency>
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
-            <version>4.2.2</version>
+            <version>${selenium}</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.0.3</version>
+            <version>${webDriverManager}</version>
         </dependency>
 
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.6.0</version>
+            <version>${testng}</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>${lombok}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.typesafe</groupId>
             <artifactId>config</artifactId>
-            <version>1.4.2</version>
+            <version>${typesafe}</version>
         </dependency>
 
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.9.0</version>
+            <version>${gson}</version>
         </dependency>
 
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.4.0</version>
+            <version>${postgresql}</version>
+        </dependency>
+<!-- LOGGING -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback}</version>
+            <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure}</version>
+        </dependency>
 
     </dependencies>
-    <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
-    </properties>
-
-
 </project>
